@@ -18,7 +18,18 @@ namespace Autocad_dll_import_layot_23_10_2023
 {
     public class Class1
     {
-[CommandMethod("U_83")]
+        // перебираем  все  открытые чертежи  в одном автокаде, куда dll appload 23-10-2023 16-44
+        public static void GetDocNames()
+        {
+            DocumentCollection docs = Application.DocumentManager;
+
+            foreach (Document doc in docs)
+            {
+                Application.ShowAlertDialog(doc.Name);
+            }
+        }
+
+        [CommandMethod("U_83")]
         //C# Разбивка чертежа на "Модель - Лист".
         //https://forum.dwg.ru/showthread.php?t=107322
         public static void ExportLayouts()
@@ -46,23 +57,26 @@ namespace Autocad_dll_import_layot_23_10_2023
                 
 
             LayoutManager acLayoutManager = null;
-            foreach (String layout in layouts)
-            {
-
+                // пробуем первый лист импортировать
+           // foreach (String layout in layouts)
+          //  {
+          string layout = layouts[2];
                 if (layout != null)
                 {
                     acLayoutManager = LayoutManager.Current;
                     acLayoutManager.CurrentLayout = layout;
-                   acDoc.Editor.WriteMessage($"\n Поптыка сохранить лист: {layout}");
+                  // acDoc.Editor.WriteMessage($"\n Поптыка сохранить лист: {layout}");
                     //acDoc.SendStringToExecute("._FILEDIA 0 ", true, false, true);
                     //Проверка на корректность имен файла опущена 
-                    acDoc.SendStringToExecute($"._EXPORTLAYOUT  {layout}" , false, false, false);
+                    acDoc.SendStringToExecute($"._EXPORTLAYOUT  {layout}" , true, false, false);
                     //acDoc.SendStringToExecute("\n",false, false, true);
                    //acDoc.SendStringToExecute("\n" + "(princ)",  false, false, false);
                     //acEditor.Command("\n" + "._EXPORTLAYOUT" + " E: " + layout);
                 }
-            }
+             
+                //  }
                 acTrans.Commit();
+                GetDocNames();
             }
         }
         [CommandMethod("CLA")]
