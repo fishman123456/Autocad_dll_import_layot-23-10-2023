@@ -1,0 +1,6 @@
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Autocad_dll_import_layot-23-10-2023\obj\Debug\Autocad_dll_import_layot-23-10-2023.csproj.AssemblyReference.cache
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Autocad_dll_import_layot-23-10-2023\obj\Debug\Autocad_dll_import_layot-23-10-2023.csproj.CoreCompileInputs.cache
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Autocad_dll_import_layot-23-10-2023\bin\Debug\Autocad_dll_import_layot-23-10-2023.dll
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Autocad_dll_import_layot-23-10-2023\bin\Debug\Autocad_dll_import_layot-23-10-2023.pdb
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Autocad_dll_import_layot-23-10-2023\obj\Debug\Autocad_dll_import_layot-23-10-2023.dll
+C:\Users\Fishman.DB.CORP\Documents\GitHub\Autocad_dll_import_layot-23-10-2023\obj\Debug\Autocad_dll_import_layot-23-10-2023.pdb

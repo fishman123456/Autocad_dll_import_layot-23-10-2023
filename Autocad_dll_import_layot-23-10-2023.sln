@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autocad_dll_import_layot-23-10-2023", "Autocad_dll_import_layot-23-10-2023.csproj", "{975C0CB3-9176-48B0-B33C-F43CBC21CC9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{975C0CB3-9176-48B0-B33C-F43CBC21CC9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{975C0CB3-9176-48B0-B33C-F43CBC21CC9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{975C0CB3-9176-48B0-B33C-F43CBC21CC9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{975C0CB3-9176-48B0-B33C-F43CBC21CC9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6FD990D8-4E63-489B-8034-CEA31FB198BA}
+	EndGlobalSection
+EndGlobal
