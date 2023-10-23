@@ -34,7 +34,7 @@ namespace Autocad_dll_import_layot_23_10_2023
 
                 Int32 iLayout = 0;
                 layouts = new string[layoutDict.Count];
-
+                 
                 foreach (DictionaryEntry id in layoutDict)
                 {
                     Layout ltr = (Layout)acTrans.GetObject((ObjectId)id.Value, OpenMode.ForRead);
