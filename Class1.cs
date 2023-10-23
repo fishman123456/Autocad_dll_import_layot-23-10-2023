@@ -19,6 +19,8 @@ namespace Autocad_dll_import_layot_23_10_2023
     public class Class1
     {
 [CommandMethod("U_83")]
+        //C# Разбивка чертежа на "Модель - Лист".
+        //https://forum.dwg.ru/showthread.php?t=107322
         public static void ExportLayouts()
         {
             Document acDoc = Application.DocumentManager.MdiActiveDocument;
@@ -36,37 +38,58 @@ namespace Autocad_dll_import_layot_23_10_2023
                 foreach (DictionaryEntry id in layoutDict)
                 {
                     Layout ltr = (Layout)acTrans.GetObject((ObjectId)id.Value, OpenMode.ForRead);
-                    if (ltr.LayoutName != "Model")
+                    if (ltr.LayoutName.ToLower() != "model")
                     {
                         layouts[++iLayout] = ltr.LayoutName;
                     }
                 }
-            }
-            try
+                
+
+            LayoutManager acLayoutManager = null;
+            foreach (String layout in layouts)
             {
-                LayoutManager acLayoutManager = null;
-                foreach (String layout in layouts)
+
+                if (layout != null)
                 {
-                    if (layout != null)
-                    {
-                        acLayoutManager = LayoutManager.Current;
-                        acLayoutManager.CurrentLayout = layout;
-                        //Проверка на корректность имен файла опущена 
-                        //acDoc.Editor.WriteMessage("\nПоптыка сохранить лист: " + layout);
-                        //acDoc.SendStringToExecute("._FILEDIA 0 ", true, false, true);
-                        acDoc.SendStringToExecute("._EXPORTLAYOUT" + " E:  " + layout , true, false, true);
-                    }
+                    acLayoutManager = LayoutManager.Current;
+                    acLayoutManager.CurrentLayout = layout;
+                   acDoc.Editor.WriteMessage($"\n Поптыка сохранить лист: {layout}");
+                    //acDoc.SendStringToExecute("._FILEDIA 0 ", true, false, true);
+                    //Проверка на корректность имен файла опущена 
+                    acDoc.SendStringToExecute($"._EXPORTLAYOUT  {layout}" , false, false, false);
+                    //acDoc.SendStringToExecute("\n",false, false, true);
+                   //acDoc.SendStringToExecute("\n" + "(princ)",  false, false, false);
+                    //acEditor.Command("\n" + "._EXPORTLAYOUT" + " E: " + layout);
                 }
             }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                acTrans.Commit();
             }
-           finally 
-                {
-                acDoc.SendStringToExecute("._FILEDIA 1 ", true, false, true);
-            } 
-          
+        }
+        [CommandMethod("CLA")]
+
+        public static void CommandLineArguments()
+
+        {
+
+            var ed = Application.DocumentManager.MdiActiveDocument.Editor;
+
+            var args = System.Environment.GetCommandLineArgs();
+
+            ed.WriteMessage(
+
+              //"\nCommand-line arguments at AutoCAD launch were ",
+              ".ЭКСПОРТВЭЛИСТА "
+
+            );
+
+            foreach (var arg in args)
+
+            {
+
+                ed.WriteMessage("[{0}] ", arg);
+
+            }
+
         }
     }
 }
